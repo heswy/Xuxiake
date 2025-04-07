@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ECharts 词云图示例</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.0.0/dist/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+  <div id="wordCloud" style="width: 800px; height: 500px;"></div>
+
+  <script>
+    const chart = echarts.init(document.getElementById('wordCloud'));
+
+    const data = [
+      { name: 'Python', value: 300 },
+      { name: 'JavaScript', value: 250 },
+      { name: '数据可视化', value: 200 },
+      { name: 'ECharts', value: 180 },
+      { name: '机器学习', value: 150 },
+      { name: '深度学习', value: 120 }
+    ];
+
+    const option = {
+      series: [
+        {
+          type: 'wordCloud',
+          data: data,
+          shape: 'diamond',
+          gridSize: 10,
+          sizeRange: [12, 60],
+          rotationRange: [-45, 45],
+          rotationStep: 45,
+          textStyle: {
+            normal: {
+              color: function () {
+                const colors = ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f'];
+                return colors[Math.floor(Math.random() * 5)];
+              },
+              fontFamily: 'Arial'
+            }
+          }
+        }
+      ]
+    };
+
+    chart.setOption(option);
+  </script>
+</body>
+</html>

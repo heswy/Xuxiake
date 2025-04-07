@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻山之踪</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- 添加ECharts库 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* 定义自定义字体 */
+        @font-face {
+            font-family: 'SourceHanSerifCN-Bold';
+            src: url('../font/SourceHanSerifCN-Bold-2.otf');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="title-container">
+                <div class="sub-title">《徐霞客游记》山脉数据可视化</div>
+                <div class="main-title">霞客 · 山证</div>
+            </div>
+            <div class="navigation-panel">
+                <a href="../index/index.html"><img src="../img/dh-1.png" alt="导航1"></a>
+                <a href="../page_1/page_1.html"><img src="../img/dh-2.png" alt="导航2"></a>
+                <a href="../page_2/page_2.html"><img src="../img/dh-3.png" alt="导航3"></a>
+                <a href="../page_3/page_3.html"><img src="../img/dh-4.png" alt="导航4"></a>
+            </div>
+        </div>
+        <div class="middle-section">
+            <div class="title-area">徐霞客游览行踪图</div>
+            <div class="map-chart"></div>
+        </div>
+        <div class="right-section">
+            <div class="data-panel">
+                <div class="timeline-container">
+                    <div class="timeline-text">徐霞客登山时间轴</div>
+                    <div class="timeline">
+                        <!-- 时间轴内容 -->
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>天台山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>梁隍山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>松门岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>箸竹岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>太白峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>寒岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>明岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>琼台</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>赤城山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>雁宕山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>盘山岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>谢公岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>观音岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>板嶂岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>小剪刀峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>大剪刀峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十一年癸丑</div>
+                                <h3>连云峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>白岳</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>玉屏峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>香炉峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>紫霄崖</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>三姑峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>五老峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>黄山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十四年丙寅</div>
+                                <h3>武夷山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十六年戊午</div>
+                                <h3>庐山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">万历四十六年戊午</div>
+                                <h3>黄山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">天启三年癸亥</div>
+                                <h3>嵩山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">天启三年癸亥</div>
+                                <h3>太华山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">天启三年癸亥</div>
+                                <h3>太和山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯五年壬申</div>
+                                <h3>天台山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯五年壬申</div>
+                                <h3>雁宕山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯五年壬申</div>
+                                <h3>盘山岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯六年癸酉</div>
+                                <h3>五台山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯六年癸酉</div>
+                                <h3>恒山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>常山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>玉山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>麻姑山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>会仙峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>军峰</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>华盖山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯九年</div>
+                                <h3>武功山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>云阳山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>衡山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>朝阳岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>澹岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>桂林附近诸山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>虞山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>伏波山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>叠彩山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>七星岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>隐山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>雉岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>南溪山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>崖头山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>穿山岩</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>尧山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>富教山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十年</div>
+                                <h3>雉山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>杨宝山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>白云山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>关索岭</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>丹霞山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>太华山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>翠峰山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>妙峰山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十一年</div>
+                                <h3>鸡足山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十二年</div>
+                                <h3>金华山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十二年</div>
+                                <h3>石宝山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十二年</div>
+                                <h3>打鹰山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十二年</div>
+                                <h3>玛瑙山</h3>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-date">崇祯十二年</div>
+                                <h3>天姥崖</h3>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../index/script.js"></script>
+    <script src="../index/china.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+@font-face {
+    font-family: 'SourceHanSerifCNBold';
+    src: url('../font/SourceHanSerifCN-Bold-2.otf');
+}
+@font-face {
+    font-family: 'SourceHanSerifCNHeavy';
+    src: url('../font/SourceHanSerifCN-Heavy-4.otf');
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* 添加这行代码，设置背景图片不重复 */
+    font-family: 'SourceHanSerifCNBold', Arial, sans-serif;
+    height: 100vh;
+    color: #5d1d1c;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    
+}
+
+.left-section {
+    width: 15%; /* 将宽度调整为更窄 */
+    /* border-right: 2px solid #000; *//* 移除右边框线 */
+    position: relative;
+    box-sizing: border-box; /* 确保边框线在元素内部 */
+    padding: 10px; /* 增加内边距，使文字在边框线内 */
+    background-color: #7e63c700;
+}
+.left-section::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    height: 80%;
+    width: 1.5px;
+    background-color: #5d1d1c; /* 中间竖线 */
+}
+.left-section::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 0; /* 移到最右边 */
+    height: 80%;
+    width: 1.5px;
+    background-color: #5d1d1c; /* 中间竖线 */
+}
+.left-section .title-container {
+    writing-mode: vertical-lr; /* 文字竖排 */
+    text-align: left;
+    margin-left: 5px; /* 调整文字居左距离 */
+    width: 40%; /* 调整标题容器宽度 */
+    background-color: rgba(0, 255, 255, 0);
+    height: 100%;
+    display: flex; /* 添加这行，使标题排列在一列 */
+    flex-direction: column; /* 添加这行，使标题排列在一列 */
+    
+}
+.left-section .main-title {
+    font-family: 'SourceHanSerifCNHeavy', Arial, sans-serif;
+    font-size: 65px; /* 减小主标题字体 */
+    font-weight: bold;
+    background-color: #ffffff00;
+    margin-top: 5%;
+    margin-left: -4%;
+    height: 40%;
+}
+.left-section .sub-title {
+    font-family: 'SourceHanSerifCNBold', Arial, sans-serif;
+    font-size: 30px; /* 减小副标题字体 */
+    background-color: #c9202000;
+    margin-top: 45%;
+    margin-left: 1%;
+}
+
+
+/* 导航版块在这里 */
+/* 导航版块在这里 */
+/* 导航版块在这里 */
+.navigation-panel {
+    position: absolute;
+    top: 0;
+    left: 55%; /* 调整导航板块的位置，使其在 .title-container 右边一点点 */
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 缩小元素之间的距离 */
+    z-index: 1;
+    background-color: #18a8ad00;
+}
+.navigation-panel a {
+    background-color: #1d28c200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+.navigation-panel a img {
+    width: 80%; /* 调整图片宽度 */
+    height: 90%; /* 调整图片高度 */ 
+    object-fit: contain; /* 添加这行代码，让图片保持原始比例 */
+    background-color: #a0101000;
+}
+@media (min-width: 2560px) {
+    .navigation-panel a img {
+        width: 83%; /* 增大图片宽度 */
+        height: 90%; /* 增大图片高度 */
+    }
+}
+@media (min-width: 2560px) {
+    .left-section .main-title {
+        font-size: 80px;
+        margin-left: -3%; /* 增加 margin-left 属性，右移大标题 */
+    }
+    .left-section .sub-title {
+        font-size: 40px;
+        margin-left: 3%; /* 增加 margin-left 属性，右移小标题 */
+    }
+}
+@media (min-width: 2560px) {
+    .title-area {
+        font-size: 24px; /* 调大标题区字体 */
+    }
+    .title {
+        font-size: 24px; /* 调大标题字体 */
+    }
+}
+
+
+
+
+.right-section {
+    width: 85%; /* 调整右侧部分宽度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff00;
+}
+.right-section-top {
+    display: flex;
+    justify-content: space-between;
+    height: 50%; /* 上半部分占比1:1 */
+    background-color: #eca62500;
+    margin-top: 10px; /* 增加顶部外边距 */;
+    margin-right: 10px;
+}
+.section-item {
+    width: 23%; /* 四个部分有间隙 */
+    display: flex;
+    flex-direction: column;
+    background-color: #6a7bdd00;
+    margin-right: 10px;
+    
+
+}
+.title-area {
+    height: 10%; /* 标题区占比 */
+    background-color: #dcf31000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; /* 默认字号 */
+}
+@media (min-width: 2560px) {
+    .title-area {
+        font-size: 26px; /* 屏幕大于25寸时调大字号 */
+    }
+}
+.text-area {
+    height: 88%; /* 文本区占比 */
+    background-color: #91897c33;
+    padding: 10px;
+    color: #5d1d1c; /* 改变字体颜色为红色，可根据需要修改颜色值 */
+    font-size: 16px;
+    line-height: 2; /* 增大行间距，可根据需要调整值 */
+    box-sizing: border-box;
+    text-align: justify;    /* 可以设置文本的对齐方式 */
+    overflow: auto;    /* 可以设置文本的溢出处理方式 */
+    opacity: 0.9;    /* 可以设置文本的透明度 */
+    word-wrap: break-word;    /* 可以设置文本的换行方式 */
+    text-indent: 1em; /* 增加缩进 */
+    /* 可以设置滚动条样式 */
+    scrollbar-width: thin;
+    scrollbar-color: #5d1d1c #f0f0f000;   
+}
+
+.text-area a {
+    color: inherit; /* 继承父元素的颜色 */
+    font-size: 14px;
+}
+.text-area a:visited {
+    color: inherit; /* 取消点击链接后改变颜色 */
+}
+
+@media (min-width: 2560px) {
+    .text-area a {
+        font-size: 18px; /* 屏幕大于25寸时调大字号 */
+    }
+}
+@media (min-width: 2560px) {
+    .text-area {
+        font-size: 20px; /* 屏幕大于25寸时调大字号 */
+    }
+}
+
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+/*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  *//*  */
+
+.right-section-bottom {
+    height: 50%; /* 下半部分占比1:1 */
+    background-color: rgba(197, 77, 147, 0);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border-top: 1px solid #5d1d1c;
+}
+.title {
+    height: 10%; /* 标题占比 */
+    background-color: #d4e63200;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px; /* 默认字号 */
+
+}
+@media (min-width: 2560px) {
+    .title {
+        font-size: 26px; /* 屏幕大于25寸时调大字号 */
+    }
+}
+.chart {
+    height: 88%; /* 图表占比 */
+    background-color: #91897c33;
+    margin-right: 10px;
+}
+
+.custom-element {
+    background-color: rgba(146, 238, 40, 0);
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/* 响应式设计 */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-section, .middle-section, .right-section {
+        width: 100%;
+        height: 20vh;
+    }
+    .middle-section {
+        height: 60vh;
+    }
+}
+
+body::before, body::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 4px solid #5d1d1c; /* 修改为更粗的边框 */
+    pointer-events: none;
+}
+body::after {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #5d1d1c; /* 修改为更粗的边框 */
+    pointer-events: none;
+    /* 添加独立的样式属性，避免与外圈同步变化 */
+    background-color: rgba(255, 255, 255, 0);
+}
+

@@ -1,0 +1,373 @@
+@font-face {
+    font-family: 'SourceHanSerifCNBold';
+    src: url('../font/SourceHanSerifCN-Bold-2.otf');
+}
+@font-face {
+    font-family: 'SourceHanSerifCNHeavy';
+    src: url('../font/SourceHanSerifCN-Heavy-4.otf');
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat; /* 添加这行代码，设置背景图片不重复 */
+    font-family: 'SourceHanSerifCNBold', Arial, sans-serif;
+    height: 100vh;
+    color: #5d1d1c;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    
+}
+
+.left-section {
+    width: 18%; /* 将宽度调整为更窄 */
+    /* border-right: 2px solid #000; *//* 移除右边框线 */
+    position: relative;
+    box-sizing: border-box; /* 确保边框线在元素内部 */
+    padding: 10px; /* 增加内边距，使文字在边框线内 */
+    background-color: #7e63c700;
+}
+.left-section::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 55%;
+    height: 80%;
+    width: 1.5px;
+    background-color: #5d1d1c; /* 中间竖线 */
+}
+.left-section::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 0; /* 移到最右边 */
+    height: 80%;
+    width: 1.5px;
+    background-color: #5d1d1c; /* 中间竖线 */
+}
+.left-section .title-container {
+    writing-mode: vertical-lr; /* 文字竖排 */
+    text-align: left;
+    margin-left: 5px; /* 调整文字居左距离 */
+    width: 40%; /* 调整标题容器宽度 */
+    background-color: rgba(0, 255, 255, 0);
+    height: 100%;
+    display: flex; /* 添加这行，使标题排列在一列 */
+    flex-direction: column; /* 添加这行，使标题排列在一列 */
+    
+}
+.left-section .main-title {
+    font-family: 'SourceHanSerifCNHeavy', Arial, sans-serif;
+    font-size: 65px; /* 减小主标题字体 */
+    font-weight: bold;
+    background-color: #ffffff00;
+    margin-top: 5%;
+    margin-left: -4%;
+    height: 40%;
+}
+.left-section .sub-title {
+    font-family: 'SourceHanSerifCNBold', Arial, sans-serif;
+    font-size: 30px; /* 减小副标题字体 */
+    background-color: #c9202000;
+    margin-top: 45%;
+    margin-left: 1%;
+}
+
+
+/* 导航版块在这里 */
+/* 导航版块在这里 */
+.navigation-panel {
+    position: absolute;
+    top: 0;
+    left: 55%; /* 调整导航板块的位置，使其在 .title-container 右边一点点 */
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 缩小元素之间的距离 */
+    z-index: 1;
+    background-color: #18a8ad00;
+}
+.navigation-panel a {
+    background-color: #1d28c200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+.navigation-panel a img {
+    width: 80%; /* 调整图片宽度 */
+    height: 90%; /* 调整图片高度 */ 
+    object-fit: contain; /* 添加这行代码，让图片保持原始比例 */
+    background-color: #a0101000;
+}
+
+@media (min-width: 2560px) {
+    .navigation-panel a img {
+        width: 83%; /* 增大图片宽度 */
+        height: 90%; /* 增大图片高度 */
+    }
+}
+@media (min-width: 2560px) {
+    .left-section .main-title {
+        font-size: 80px;
+        margin-left: -3%; /* 增加 margin-left 属性，右移大标题 */
+    }
+    .left-section .sub-title {
+        font-size: 40px;
+        margin-left: 3%; /* 增加 margin-left 属性，右移小标题 */
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .left-section{
+        width: 100%;
+        height: 20vh;
+    }
+}
+
+.middle-section {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff00;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 6px;
+}
+.middle-section-top {
+    height: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #a9da3800;
+}
+.middle-section-middle {
+    height: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #c0151500;
+}
+.middle-section-bottom {
+    height: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4d195a00;
+}
+.right-section {
+    width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff00;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 6px;
+}
+.right-section-top {
+    height: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #a9da3800;
+}
+.right-section-middle {
+    height: 40%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #c0151500;
+
+}
+.right-section-bottom {
+    height: 20%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #4d195a00;
+
+}
+
+/* 以下为标题图表样式区 */
+@media (min-width: 2560px) {
+    .middle-section-top .title {
+        font-size: 24px; /* 调大字体 */
+    }
+    .middle-section-middle .title {
+        font-size: 20px; /* 调大字体 */
+    }
+    .middle-section-bottom .title {
+        font-size: 22px; /* 调大字体 */
+    }
+    .right-section-top .title {
+        font-size: 24px; /* 调大字体 */
+    }
+    .right-section-middle .title {
+        font-size: 20px; /* 调大字体 */
+    }
+    .right-section-bottom .title {
+        font-size: 22px; /* 调大字体 */
+    }
+}
+.middle-section-top .title {
+    height: 20%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #e6292900;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+.middle-section-top .chart {
+    height: 80%; /* 图表区占比80% */
+    box-sizing: border-box;
+    background-color: #91897c33;
+    padding: -5px;
+}
+/* —————————————————————————————————— */
+.middle-section-middle .title {
+    height: 8%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #91897c00;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.middle-section-middle .chart {
+    height: 92%; /* 图表区占比80% */
+    box-sizing: border-box;
+    background-color: #91897c33;
+    padding: 5px;
+}
+/* —————————————————————————————————— */
+.middle-section-bottom .title {
+    height: 10%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #ffffff00;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+.middle-section-bottom .chart {
+    height:90%; /* 图表区占比80% */
+    box-sizing: border-box;
+    background-color: #91897c33;
+    padding: -5px;
+}
+/* —————————————————————————————————— */
+.right-section-top .title {
+    height: 8%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #00000000;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 7px;
+
+}
+.right-section-top .chart {
+    height: 92%; /* 图表区占比80% */
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #91897c33;
+}
+/* —————————————————————————————————— */
+.right-section-middle .title {
+    height: 10%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #a9da3800;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+.right-section-middle .chart {
+    height: 90%; /* 图表区占比80% */
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #91897c33;
+}
+
+
+/* —————————————————————————————————— */
+.right-section-bottom .title {
+    height: 20%; /* 标题区占比20% */
+    box-sizing: border-box;
+    background-color: #a9da3800;
+    justify-content: left;
+    align-items: top;
+    font-size: 20px;
+    margin-bottom: 5px;
+
+}
+.right-section-bottom .chart {
+    height: 80%; /* 图表区占比80% */
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #91897c33;
+}
+
+@media (min-width: 2560px) {
+    .right-section-bottom .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+@media (min-width: 2560px) {
+    .right-section-middle .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+@media (min-width: 2560px) {
+    .right-section-top .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+@media (min-width: 2560px) {
+    .middle-section-bottom .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+@media (min-width: 2560px) {
+    .middle-section-top .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+@media (min-width: 2560px) {
+    .middle-section-middle .title {
+        font-size: 24px; /* 调大字体 */
+    }
+}
+/* 以下为边界 */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid #5d1d1c; /* 修改为更粗的边框 */
+    pointer-events: none;
+}
+body::after {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #5d1d1c; /* 修改为更粗的边框 */
+    pointer-events: none;
+    /* 添加独立的样式属性，避免与外圈同步变化 */
+    background-color: rgba(255, 255, 255, 0);
+}
+
